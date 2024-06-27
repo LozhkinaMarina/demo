@@ -6,12 +6,16 @@ class Main {
         String[] chasti = input.split(" "); // разбила входную строку на части по пробелам -> в массив строк
 
         if (chasti.length != 3) {
-            throw new IllegalArgumentException("с");
+            throw new IllegalArgumentException("throws Exception");
         }// если количество частей после разбиения равно 3, то все ок. Если нет, то генерится исключение
 
         int pervoyeChislo = Integer.parseInt(chasti[0]);
         String mathAction = chasti[1];
         int vtoroyeChislo = Integer.parseInt(chasti[2]);
+
+         if (pervoyeChislo < 1 || pervoyeChislo > 10 || vtoroyeChislo < 1 || vtoroyeChislo > 10) {
+            throw new NumberFormatException("throws Exception");
+        }
 
         int result = 0;
 
@@ -30,13 +34,13 @@ class Main {
 
             case "/":
                 if (vtoroyeChislo == 0) {
-                    throw new IllegalArgumentException("throws Exception: нельзя делить на 0") ;
+                    throw new IllegalArgumentException("throws Exception") ;
                 }
                 result = pervoyeChislo / vtoroyeChislo;
                 break;
 
             default:
-                throw new IllegalArgumentException("throws Exception: введи выражение из двух параметров, используя + для обозначения сложения, - для обозначения вычитания, * для обозначения умножения, / для обозначения деления. Пример: 10/2");
+                throw new IllegalArgumentException("throws Exceptio");
         }
 
         return String.valueOf(result); // возврат результата как строки
